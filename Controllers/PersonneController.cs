@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using template.Models;
 using Template.Data;
 using Template.Dtos;
 using Template.Models;
@@ -53,6 +54,15 @@ public class PersonneController : ControllerBase
     {
         var ev = _repo.deletePersonne(id);
         return ev;
+    }
+    [HttpGet("TestNotation")]
+    public ActionResult<Notation> TestNotation(Guid id)
+    {
+        Notation Note = new Notation(15, Desciplines.Preselection);
+        // Note.SetAsNoteRevision();
+        // Note.SetAsTestFinal();
+        Note.SetAsTestPartiel();
+        return Ok(Note);
     }
 
 }

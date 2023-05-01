@@ -12,5 +12,10 @@ namespace Template.Models
         public int Age { get; set; }
         public DateTime CreationTimeUtc { get; set; } = DateTime.UtcNow;
     }
+    public static class SchemesNamesConst
+    {
+        public const string TokenAuthenticationDefaultScheme = "TokenAuthenticationScheme";
+    }
+
 
 }

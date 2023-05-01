@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Template.Data;
 
@@ -11,9 +12,10 @@ using Template.Data;
 namespace Template.Migrations
 {
     [DbContext(typeof(TemplateContext))]
-    partial class TemplateContextModelSnapshot : ModelSnapshot
+    [Migration("20230509183944_addEx")]
+    partial class addEx
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,68 +23,6 @@ namespace Template.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("Template.Models.ExternalEntity", b =>
-                {
-                    b.Property<string>("ServerName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Port")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ServerUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ServerName");
-
-                    b.ToTable("ExternalEntities");
-                });
-
-            modelBuilder.Entity("template.Models.Notation", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<double>("Coefficient")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Descipline")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DesciplineCode")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("IdPersonne")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsRevision")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsTest")
-                        .HasColumnType("bit");
-
-                    b.Property<double>("Note")
-                        .HasColumnType("float");
-
-                    b.Property<int>("PhaseFormationCode")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PhaseFormationDisplay")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Notations");
-                });
 
             modelBuilder.Entity("Template.Models.Personne", b =>
                 {
@@ -114,27 +54,27 @@ namespace Template.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("69428ad2-56c3-48e2-ab32-8f2282145038"),
+                            Id = new Guid("4eb7c6c5-18af-4984-bfc4-2c25e4741a47"),
                             Age = 1,
-                            CreationTimeUtc = new DateTime(2023, 5, 12, 19, 23, 5, 97, DateTimeKind.Utc).AddTicks(5965),
+                            CreationTimeUtc = new DateTime(2023, 5, 9, 18, 39, 43, 794, DateTimeKind.Utc).AddTicks(4018),
                             IsDeleted = false,
                             Nom = "Djehinet",
                             Prenom = "Djawed"
                         },
                         new
                         {
-                            Id = new Guid("df418748-01fa-4849-93e8-20d213dee1df"),
+                            Id = new Guid("328a284b-7857-436c-a743-7f1fa0b3a9e7"),
                             Age = 32,
-                            CreationTimeUtc = new DateTime(2023, 5, 12, 19, 23, 5, 97, DateTimeKind.Utc).AddTicks(5974),
+                            CreationTimeUtc = new DateTime(2023, 5, 9, 18, 39, 43, 794, DateTimeKind.Utc).AddTicks(4030),
                             IsDeleted = false,
                             Nom = "Djehinet",
                             Prenom = "Nadjib"
                         },
                         new
                         {
-                            Id = new Guid("4ba26e97-8dae-4d31-9995-4418b5f4952c"),
+                            Id = new Guid("327f16f8-3b31-4e7b-819f-7b0e4673a877"),
                             Age = 30,
-                            CreationTimeUtc = new DateTime(2023, 5, 12, 19, 23, 5, 97, DateTimeKind.Utc).AddTicks(5979),
+                            CreationTimeUtc = new DateTime(2023, 5, 9, 18, 39, 43, 794, DateTimeKind.Utc).AddTicks(4035),
                             IsDeleted = false,
                             Nom = "Djehinet",
                             Prenom = "Fateh"

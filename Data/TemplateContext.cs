@@ -1,5 +1,6 @@
 using EntityFrameworkExample.Maps;
 using Microsoft.EntityFrameworkCore;
+using template.Models;
 using Template.Extensions;
 using Template.Models;
 
@@ -21,7 +22,9 @@ namespace Template.Data
         // }
 
         public DbSet<Personne> Personnes { get; set; }
+        public DbSet<ExternalEntity> ExternalEntities { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Notation> Notations { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

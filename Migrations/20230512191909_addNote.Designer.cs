@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Template.Data;
 
@@ -11,9 +12,10 @@ using Template.Data;
 namespace Template.Migrations
 {
     [DbContext(typeof(TemplateContext))]
-    partial class TemplateContextModelSnapshot : ModelSnapshot
+    [Migration("20230512191909_addNote")]
+    partial class addNote
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,9 +61,6 @@ namespace Template.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("IdPersonne")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsRevision")
                         .HasColumnType("bit");
@@ -114,27 +113,27 @@ namespace Template.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("69428ad2-56c3-48e2-ab32-8f2282145038"),
+                            Id = new Guid("b2e852ed-c192-47b2-a464-a0ad23ad31ae"),
                             Age = 1,
-                            CreationTimeUtc = new DateTime(2023, 5, 12, 19, 23, 5, 97, DateTimeKind.Utc).AddTicks(5965),
+                            CreationTimeUtc = new DateTime(2023, 5, 12, 19, 19, 9, 283, DateTimeKind.Utc).AddTicks(4756),
                             IsDeleted = false,
                             Nom = "Djehinet",
                             Prenom = "Djawed"
                         },
                         new
                         {
-                            Id = new Guid("df418748-01fa-4849-93e8-20d213dee1df"),
+                            Id = new Guid("ace63e00-8520-4346-bfa4-88c14ce7ef1e"),
                             Age = 32,
-                            CreationTimeUtc = new DateTime(2023, 5, 12, 19, 23, 5, 97, DateTimeKind.Utc).AddTicks(5974),
+                            CreationTimeUtc = new DateTime(2023, 5, 12, 19, 19, 9, 283, DateTimeKind.Utc).AddTicks(4771),
                             IsDeleted = false,
                             Nom = "Djehinet",
                             Prenom = "Nadjib"
                         },
                         new
                         {
-                            Id = new Guid("4ba26e97-8dae-4d31-9995-4418b5f4952c"),
+                            Id = new Guid("11780f8a-a503-419d-952f-63ee2c0f4a3e"),
                             Age = 30,
-                            CreationTimeUtc = new DateTime(2023, 5, 12, 19, 23, 5, 97, DateTimeKind.Utc).AddTicks(5979),
+                            CreationTimeUtc = new DateTime(2023, 5, 12, 19, 19, 9, 283, DateTimeKind.Utc).AddTicks(4777),
                             IsDeleted = false,
                             Nom = "Djehinet",
                             Prenom = "Fateh"

@@ -16,18 +16,20 @@ public interface IJwtUtils
 
 public class JwtUtils : IJwtUtils
 {
-    private readonly AppSettings _appSettings;
+    // private readonly AppSettings _appSettings;
+    private readonly IConfiguration _config;
 
-    public JwtUtils(IOptions<AppSettings> appSettings)
+    public JwtUtils(IConfiguration config)
     {
-        _appSettings = appSettings.Value;
+        _config = config;
     }
 
     public string GenerateToken(User user)
     {
         // generate token that is valid for 7 days
         var tokenHandler = new JwtSecurityTokenHandler();
-        var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+        var key = System.Text.Encoding.UTF8.GetBytes(_config.GetSection("Appsettings:Secret").Value);
+        // var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(new[] { new Claim("id", user.Id.ToString()) }),
@@ -44,7 +46,8 @@ public class JwtUtils : IJwtUtils
             return null;
 
         var tokenHandler = new JwtSecurityTokenHandler();
-        var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+        var key = System.Text.Encoding.UTF8.GetBytes(_config.GetSection("Appsettings:Secret").Value);
+        // var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
         try
         {
             tokenHandler.ValidateToken(token, new TokenValidationParameters

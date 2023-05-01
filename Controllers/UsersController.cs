@@ -15,21 +15,19 @@ public class UsersController : ControllerBase
 {
     private IUserService _userService;
     private IMapper _mapper;
-    private readonly AppSettings _appSettings;
 
     public UsersController(
         IUserService userService,
-        IMapper mapper,
-        IOptions<AppSettings> appSettings)
+        IMapper mapper)
     {
         _userService = userService;
         _mapper = mapper;
-        _appSettings = appSettings.Value;
+        // _appSettings = appSettings.Value;
     }
 
     [AllowAnonymous]
     [HttpPost("authenticate")]
-    public IActionResult Authenticate(AuthenticateRequest model)
+    public ActionResult<AuthenticateResponse> Authenticate(AuthenticateRequest model)
     {
         var response = _userService.Authenticate(model);
         return Ok(response);

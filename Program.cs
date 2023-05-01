@@ -1,4 +1,5 @@
 using System.Text;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ using Template;
 using Template.Authorization;
 using Template.Data;
 using Template.Helpers;
+using Template.Models;
 using Template.Services;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,18 @@ builder.Services.AddScoped<IPersonneRepo, SqlPersonneRepo>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        .AddJwtBearer(options =>
+        {
+            options.RequireHttpsMetadata = false;
+        });
+
+// .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
+//     options =>
+//     {
+//         options.LoginPath = new PathString("/Users/authenticate");
+//         // options.AccessDeniedPath = new PathString("/auth/denied");
+//     });
 // Connecting To Database
 builder.Services.AddDbContext<TemplateContext>(opt => opt.UseSqlServer(
    builder.Configuration.GetConnectionString("SqlServerConnection")
@@ -28,7 +42,8 @@ builder.Services.AddCors();
 builder.Services.AddControllers();
 
 // configure strongly typed settings object
-builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+// IConfigurationSection appSettings = builder.Configuration.GetSection("AppSettings");
+// builder.Services.Configure<AppSettings>(appSettings);
 
 // configure automapper with all automapper profiles from this assembly
 builder.Services.AddAutoMapper(typeof(Program));
