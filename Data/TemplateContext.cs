@@ -11,6 +11,7 @@ namespace Template.Data
         {
 
         }
+
         public DbSet<Personne> Personnes { get; set; }
         public DbSet<User> Users { get; set; }
 

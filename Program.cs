@@ -50,9 +50,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-// configure HTTP request pipeline
-
-app.UseAuthentication();
+// configure HTTP reque 
 
 // global cors policy
 app.UseCors(x => x
@@ -64,7 +62,9 @@ app.UseCors(x => x
 app.UseMiddleware<ErrorHandlerMiddleware>();
 // custom jwt auth middleware
 app.UseMiddleware<JwtMiddleware>();
+app.UseResponseCaching();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

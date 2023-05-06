@@ -1,9 +1,18 @@
-namespace Template.Models.Users;
+namespace Template.Models.Auth;
 
-public class UpdateRequest
+using System.ComponentModel.DataAnnotations;
+
+public class RegisterRequest
 {
+    [Required]
     public string? FirstName { get; set; }
+
+    [Required]
     public string? LastName { get; set; }
+
+    [Required]
     public string? Username { get; set; }
+
+    [Required]
     public string? Password { get; set; }
 }

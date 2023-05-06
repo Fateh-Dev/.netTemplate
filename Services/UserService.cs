@@ -6,7 +6,7 @@ using Template.Authorization;
 using Template.Data;
 using Template.Helpers;
 using Template.Models;
-using Template.Models.Users;
+using Template.Models.Auth;
 
 public interface IUserService
 {

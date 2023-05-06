@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Template.Helpers;
-using Template.Models.Users;
+using Template.Models.Auth;
 using Template.Services;
 
 [Authorize]

@@ -2,7 +2,7 @@ namespace Template.Helpers;
 
 using AutoMapper;
 using Template.Models;
-using Template.Models.Users;
+using Template.Models.Auth;
 
 public class AutoMapperProfile : Profile
 {

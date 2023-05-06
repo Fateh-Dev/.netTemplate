@@ -1,4 +1,4 @@
-namespace Template.Models.Users;
+namespace Template.Models.Auth;
 
 public class AuthenticateResponse
 {

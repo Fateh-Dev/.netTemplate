@@ -17,10 +17,10 @@ namespace Template.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("ProductVersion", "6.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("Template.Models.Personne", b =>
                 {
@@ -48,6 +48,35 @@ namespace Template.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Personnes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("4a357fc2-96d6-4470-92bf-848f0b60fe8b"),
+                            Age = 1,
+                            CreationTimeUtc = new DateTime(2023, 5, 6, 13, 50, 57, 743, DateTimeKind.Utc).AddTicks(3332),
+                            IsDeleted = false,
+                            Nom = "Djehinet",
+                            Prenom = "Djawed"
+                        },
+                        new
+                        {
+                            Id = new Guid("d6e97553-5130-4a49-9b41-35eefc4f70ea"),
+                            Age = 32,
+                            CreationTimeUtc = new DateTime(2023, 5, 6, 13, 50, 57, 743, DateTimeKind.Utc).AddTicks(3344),
+                            IsDeleted = false,
+                            Nom = "Djehinet",
+                            Prenom = "Nadjib"
+                        },
+                        new
+                        {
+                            Id = new Guid("aada0131-9a3d-48b9-b8a8-e129fe68d712"),
+                            Age = 30,
+                            CreationTimeUtc = new DateTime(2023, 5, 6, 13, 50, 57, 743, DateTimeKind.Utc).AddTicks(3351),
+                            IsDeleted = false,
+                            Nom = "Djehinet",
+                            Prenom = "Fateh"
+                        });
                 });
 
             modelBuilder.Entity("Template.Models.User", b =>
@@ -56,22 +85,18 @@ namespace Template.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PasswordHash")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
