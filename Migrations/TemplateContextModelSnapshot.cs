@@ -52,27 +52,27 @@ namespace Template.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4a357fc2-96d6-4470-92bf-848f0b60fe8b"),
+                            Id = new Guid("6b64bab0-5c4f-432b-9691-7231706082b9"),
                             Age = 1,
-                            CreationTimeUtc = new DateTime(2023, 5, 6, 13, 50, 57, 743, DateTimeKind.Utc).AddTicks(3332),
+                            CreationTimeUtc = new DateTime(2023, 5, 6, 14, 5, 40, 862, DateTimeKind.Utc).AddTicks(2293),
                             IsDeleted = false,
                             Nom = "Djehinet",
                             Prenom = "Djawed"
                         },
                         new
                         {
-                            Id = new Guid("d6e97553-5130-4a49-9b41-35eefc4f70ea"),
+                            Id = new Guid("16dabfbb-8c50-4c29-9940-5bf9c47f1563"),
                             Age = 32,
-                            CreationTimeUtc = new DateTime(2023, 5, 6, 13, 50, 57, 743, DateTimeKind.Utc).AddTicks(3344),
+                            CreationTimeUtc = new DateTime(2023, 5, 6, 14, 5, 40, 862, DateTimeKind.Utc).AddTicks(2307),
                             IsDeleted = false,
                             Nom = "Djehinet",
                             Prenom = "Nadjib"
                         },
                         new
                         {
-                            Id = new Guid("aada0131-9a3d-48b9-b8a8-e129fe68d712"),
+                            Id = new Guid("f0207297-1509-4b8b-be24-b6c1707a299e"),
                             Age = 30,
-                            CreationTimeUtc = new DateTime(2023, 5, 6, 13, 50, 57, 743, DateTimeKind.Utc).AddTicks(3351),
+                            CreationTimeUtc = new DateTime(2023, 5, 6, 14, 5, 40, 862, DateTimeKind.Utc).AddTicks(2313),
                             IsDeleted = false,
                             Nom = "Djehinet",
                             Prenom = "Fateh"
@@ -102,6 +102,16 @@ namespace Template.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FirstName = "djawed",
+                            LastName = "djehinet",
+                            PasswordHash = "$2a$11$EYjFiD/mUA9eCtNuS6O.du.ezBbIIaq1WQqUydaA8tmX/cC5bDVFK",
+                            Username = "djawed"
+                        });
                 });
 #pragma warning restore 612, 618
         }

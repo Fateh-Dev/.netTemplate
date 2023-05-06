@@ -12,6 +12,14 @@ namespace Template.Data
 
         }
 
+
+        // protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // {
+        //     base.OnModelCreating(modelBuilder);
+
+        //     modelBuilder.ApplyConfiguration(new PersonneData()); 
+        // }
+
         public DbSet<Personne> Personnes { get; set; }
         public DbSet<User> Users { get; set; }
 
@@ -39,6 +47,7 @@ namespace Template.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new PersonneMap());
+            modelBuilder.ApplyConfiguration(new UserData());
         }
 
 

@@ -44,17 +44,17 @@ namespace Template.Migrations
             migrationBuilder.InsertData(
                 table: "Personnes",
                 columns: new[] { "Id", "Age", "CreationTimeUtc", "IsDeleted", "Nom", "Prenom" },
-                values: new object[] { new Guid("4a357fc2-96d6-4470-92bf-848f0b60fe8b"), 1, new DateTime(2023, 5, 6, 13, 50, 57, 743, DateTimeKind.Utc).AddTicks(3332), false, "Djehinet", "Djawed" });
+                values: new object[,]
+                {
+                    { new Guid("16dabfbb-8c50-4c29-9940-5bf9c47f1563"), 32, new DateTime(2023, 5, 6, 14, 5, 40, 862, DateTimeKind.Utc).AddTicks(2307), false, "Djehinet", "Nadjib" },
+                    { new Guid("6b64bab0-5c4f-432b-9691-7231706082b9"), 1, new DateTime(2023, 5, 6, 14, 5, 40, 862, DateTimeKind.Utc).AddTicks(2293), false, "Djehinet", "Djawed" },
+                    { new Guid("f0207297-1509-4b8b-be24-b6c1707a299e"), 30, new DateTime(2023, 5, 6, 14, 5, 40, 862, DateTimeKind.Utc).AddTicks(2313), false, "Djehinet", "Fateh" }
+                });
 
             migrationBuilder.InsertData(
-                table: "Personnes",
-                columns: new[] { "Id", "Age", "CreationTimeUtc", "IsDeleted", "Nom", "Prenom" },
-                values: new object[] { new Guid("aada0131-9a3d-48b9-b8a8-e129fe68d712"), 30, new DateTime(2023, 5, 6, 13, 50, 57, 743, DateTimeKind.Utc).AddTicks(3351), false, "Djehinet", "Fateh" });
-
-            migrationBuilder.InsertData(
-                table: "Personnes",
-                columns: new[] { "Id", "Age", "CreationTimeUtc", "IsDeleted", "Nom", "Prenom" },
-                values: new object[] { new Guid("d6e97553-5130-4a49-9b41-35eefc4f70ea"), 32, new DateTime(2023, 5, 6, 13, 50, 57, 743, DateTimeKind.Utc).AddTicks(3344), false, "Djehinet", "Nadjib" });
+                table: "Users",
+                columns: new[] { "Id", "FirstName", "LastName", "PasswordHash", "Username" },
+                values: new object[] { 1, "djawed", "djehinet", "$2a$11$EYjFiD/mUA9eCtNuS6O.du.ezBbIIaq1WQqUydaA8tmX/cC5bDVFK", "djawed" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
