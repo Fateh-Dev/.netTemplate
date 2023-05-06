@@ -12,6 +12,7 @@ namespace Template.Data
 
         }
         public DbSet<Personne> Personnes { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
